@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi Step Registration Form</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <div class="form-header">
+        <h1>Registration Form</h1>
+        <p>Complete your details carefully</p>
+      </div>
+
+      <!-- Progress -->
+      <div class="progress-wrapper">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="steps">
+          <div class="step active" id="indicator1">1</div>
+          <div class="step" id="indicator2">2</div>
+          <div class="step" id="indicator3">3</div>
+        </div>
+      </div>
+
+      <form id="registrationForm" novalidate>
+      
+        <div class="form-step active" id="step1">
+          <div class="step-title">
+            <h2>Personal Details <span>STEP 1</span></h2>
+            <p>Enter your real personal information — all values are validated.</p>
+          </div>
+
+          <div class="grid-2">
+            <div class="input-group">
+              <label for="fullName">Full Name <span>*</span></label>
+              <div class="label-row">
+                <small>Letters & spaces only</small>
+              </div>
+              <input type="text" id="fullName" placeholder="e.g. Rahul Sharma" />
+              <small class="error" id="fullNameError"></small>
+            </div>
+
+            <div class="input-group">
+              <label for="age">Age <span>*</span></label>
+              <div class="label-row">
+                <small>15 - 100 digits only</small>
+              </div>
+              <input type="number" id="age" placeholder="e.g. 24" />
+              <small class="error" id="ageError"></small>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="address">Address <span>*</span></label>
+            <div class="label-row">
+              <small>Max 20 characters</small>
+              <small id="addressCount">0/20</small>
+            </div>
+            <input type="text" id="address" maxlength="20" placeholder="Street / Colony / Block" />
+            <small class="error" id="addressError"></small>
+          </div>
+
+          <div class="grid-2">
+            <div class="input-group">
+              <label for="city">City <span>*</span></label>
+              <input type="text" id="city" placeholder="e.g. Kanpur" />
+              <small class="error" id="cityError"></small>
+            </div>
+
+            <div class="input-group">
+              <label for="state">State <span>*</span></label>
+              <select id="state">
+                <option value="">-- Select --</option>
+                <option>Uttar Pradesh</option>
+                <option>Delhi</option>
+                <option>Maharashtra</option>
+                <option>Rajasthan</option>
+                <option>Madhya Pradesh</option>
+                <option>Punjab</option>
+                <option>Haryana</option>
+                <option>Bihar</option>
+                <option>Gujarat</option>
+              </select>
+              <small class="error" id="stateError"></small>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn next-btn" id="nextBtn1">Next</button>
+          </div>
+        </div>
+
+        
+        <div class="form-step" id="step2">
+          <div class="step-title">
+            <h2>Account Setup <span>STEP 2</span></h2>
+            <p>Create secure credentials. Weak or repeated passwords are rejected.</p>
+          </div>
+
+          <div class="input-group">
+            <label for="username">Username <span>*</span></label>
+            <div class="label-row">
+              <small>7 - 8 characters</small>
+            </div>
+            <input type="text" id="username" placeholder="e.g. rahul07" />
+            <small class="error" id="usernameError"></small>
+          </div>
+
+          <div class="input-group">
+            <label for="password">Password <span>*</span></label>
+            <input type="password" id="password" placeholder="Create a strong password" />
+            <div class="password-rules">
+              <span id="ruleUpper">Uppercase letter</span>
+              <span id="ruleLower">Lowercase letter</span>
+              <span id="ruleDigit">Digit (0-9)</span>
+              <span id="ruleSpecial">Special (@#$!%)</span>
+              <span id="ruleLength">Min 8 characters</span>
+            </div>
+            <small class="error" id="passwordError"></small>
+          </div>
+
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password <span>*</span></label>
+            <input type="password" id="confirmPassword" placeholder="Re-enter your password" />
+            <small class="error" id="confirmPasswordError"></small>
+          </div>
+
+          <div class="input-group">
+            <label for="referenceDoc">Reference Document <span>(Optional)</span></label>
+            <div class="upload-box">
+              <input type="file" id="referenceDoc" accept=".pdf,.jpg,.jpeg,.png" />
+              <p>Upload PDF / JPG / PNG (max 2MB)</p>
+            </div>
+            <small class="error" id="referenceDocError"></small>
+          </div>
+
+          <div class="btn-row">
+            <button type="button" class="btn secondary" id="prevBtn">Previous</button>
+            <button type="submit" class="btn" id="submitBtn">Submit</button>
+          </div>
+        </div>
+
+        
+        <div class="form-step" id="step3">
+          <div class="success-box">
+            <div class="success-icon">✓</div>
+            <h2>Registration Successful</h2>
+            <p>Your form has been submitted successfully.</p>
+
+            <div class="summary" id="summaryBox"></div>
+
+            <button type="button" class="btn" id="resetBtn">Create Another</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
